@@ -1,0 +1,354 @@
+body {
+    font-family: 'Lucida Sans Unicode';
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgb(204, 250, 204), #8eff8e, rgb(43, 215, 43));
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative; /* For absolute positioning of elements */
+}
+
+header{
+    background-color: #ffffff;
+}
+.upperbox{
+    padding: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+
+.upperbox img{
+    z-index: 1;
+    height: 100px;
+    width: 120px;
+}
+
+.upperbox a{
+    margin-left: 5%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border: 2px solid;
+    text-decoration: none;
+    border-radius: 20px;
+    border-color: #13ff0b;
+    background-color: #13ff0b;
+    padding: 5px;
+}
+
+.upperbox a:hover{
+    transition: 1s;
+    text-shadow: 1px 0px  50px #000000;
+    color: white;
+    font-weight: bolder;
+}
+
+
+img {
+    z-index: -1;
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; /* Ensure it covers the entire viewport height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    transition: all 0.5s ease; /* Smooth transition for resizing */
+    top: 0;
+    left: 0;
+}
+
+.gallery img{
+    margin-top: 10%;
+    margin-left: 80%;
+    justify-content: end;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+}
+
+.title {
+    position: fixed; /* Change to fixed to control position */
+    top: 30%; /* Initially center the title */
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 500%;
+    color: #51f04c;
+    text-shadow: 10px 5px 10px  black;
+    text-align: center;
+    width: 100%; /* Makes sure the text is centered and doesn't overflow */
+    transition: all 1s ease; /* Smooth transition for title resizing */
+}
+
+/* Button for shrinking the image and showing the form */
+#shrink-button {
+    position: absolute;
+    top:60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 10px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    
+}
+
+#return-button{
+    background-color: red;
+    width: 100px;
+}
+
+/* Hidden form container */
+.form-container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: none;
+    padding:70px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    transition: 5s;
+}
+
+.form input {
+    color: black;
+    background: none;
+    border: none;
+    border-bottom: 1px solid;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+    font-size: 16px;
+}
+
+.form input::placeholder{
+    color: #000000;
+}
+
+.form button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Shrink image and title class when button is clicked */
+.shrink {
+    z-index: -3;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0%;
+    left: -40%;
+    object-fit: contain;
+    transition: 3s;
+}
+
+.shrink-title {
+    font-family: 'Times New Roman', Times, serif;
+    z-index: -2;
+    left: -20%;
+    color: #0daf46;
+    text-shadow: 10px 1px 10px rgb(0, 0, 0);
+    top: 10%; /* Move title to the top */
+    transform: translateY(0); /* Reset transform for top positioning */
+    font-size: 1000%; /* Adjust font size for the title when shrunk */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .title {
+        font-size: 450%; /* Smaller text size for mobile */
+        top: 40%; /* Adjust top position to keep text in view */
+    }
+
+    img {
+        width: 100%; /* Ensure the image spans the full width */
+        height: 100vh; /* Maintain the full viewport height */
+        object-fit: cover;
+    }
+
+    .shrink {
+        width: 300%; /* Adjust width for smaller screens */
+        left: -100%; /* Keep image on the left side */
+        top: -50%;
+    }
+
+    #shrink-button {
+        top: 80%; /* Adjust button position */
+    }
+
+    .form-container {
+        padding: 30px;
+        top: 60%;
+        right: 25%; /* Adjust form position for smaller screens */
+    }
+    .shrink-title {
+        top: 0%; /* Move title to the top */
+        transform: translateY(0); /* Reset transform for top positioning */
+        font-size: 200%; /* Adjust font size for the title when shrunk */
+    }
+    .upperbox{
+        padding: 30px;
+        justify-content: space-evenly;
+        align-items: center;
+        display: flex;
+    }
+    
+    .upperbox img{
+        z-index: 1;
+        height: 100px;
+        width: 120px;
+    }
+    
+    .upperbox a{
+        font-size: smaller;
+        margin-left: 12%;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        border: 2px solid;
+        text-decoration: none;
+        border-radius: 20px;
+        border-color: #13ff0b;
+        background-color: #13ff0b;
+        padding: 5px;
+    }
+    #shrink-button {
+        top: 60%;
+    }
+}
+
+.menu {
+    visibility: hidden;
+}
+
+.menu-icon {
+    display: none; /* Hide the icon by default */
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 280%; /* Even smaller text size for very small screens */
+        top: 40%; /* Adjust top position for smaller screens */
+    }
+
+    .shrink {
+        width: 500%; /* Adjust width for very small screens */
+        left: -200%;
+        top: -40%;
+    }
+
+    .form-container {
+        transition: 5s;
+        box-shadow: 5px 5px 10px 2px #000000;
+        backdrop-filter: blur(2px);
+        top: 50%;
+        right: 10%;
+        padding: 50px;
+        right: 10%; /* Adjust form position for smaller screens */
+    }
+    .shrink-title {
+        left: 0%;
+        text-shadow: 10px 10px 5px #000000;
+        top: 15%; /* Move title to the top */
+        transform: translateY(0); /* Reset transform for top positioning */
+        font-size: 300%; /* Adjust font size for the title when shrunk */
+        color: #0c7f33;
+    }
+    .upperbox{
+        display: contents;
+        font-size: 10px;
+    }
+    header{
+        padding-bottom: 10px;
+    }
+
+    .upperbox a{
+        display: none;
+        margin-left: 25%;
+    }
+
+    .gallery img{
+        border-radius: 20px;
+        padding: 20px;
+        background-color: #000000;
+        margin-top: 180%;
+        margin-left: 2%;
+        justify-content: end;
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu {
+        visibility: visible;
+        display: none; /* Hide the menu by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Below the header */
+        left: 200px;
+        width: 50%; /* Full width */
+
+        background-color: #ffffff00;
+        padding: 0;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-icon {
+        margin-left: 90%;
+        display: block; /* Show the menu icon on smaller screens */
+    }
+
+    .menu a {
+        background-color: #ffffff7a;
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ddd;
+        color: black;
+        text-align: left;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .menu a:hover {
+        background-color: #f1f1f1;
+    }
+
+    footer{
+        font-size: 12px;
+    }
+
+}
+
+footer{
+    width: 100vw;
+    justify-content: space-evenly;
+    color: white;
+    background-color: #000000;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    padding-top: 5px;
+}
+
+footer a{
+    color: white;
+}
